@@ -4,8 +4,10 @@ use \Swoole\Server;
 
 /**
  * 监听服务
+ * 
+ * 基于 swoole 的多端口监听，对于 tcpServer 服务进行端口监听
  */
-class Listen
+class listenServer
 {
     /**
      * 定义端口与ip

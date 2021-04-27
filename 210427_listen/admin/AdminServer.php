@@ -91,19 +91,19 @@ class AdminServer
     /**
      * 停止被监控的服务程序
      */
-    public function machineStop($server, $fd, $from_id, $data)
+    public function machineStop($server, $fd, $reactor_id, $data)
     {
-        echo '去停止机器';
+        echo "去停止机器\n";
         $return =   $this->sendToMachine('127.0.0.1', 9556, json_encode($data));
         //TODO 处理其他事情
-        echo '机器停止了';
+        echo "机器停止了\n";
         $server->send($fd, json_encode(['code' => 200, 'msg' => 'machine stop ok']));
     }
 
     /**
      * 查看被监控服务详情
      */
-    public function machineInfo($server, $fd, $from_id, $data)
+    public function machineInfo($server, $fd, $reactor_id, $data)
     {
         //返回
         $server->send($fd, json_encode(['code' => 200, 'msg' => 'return info ok']));

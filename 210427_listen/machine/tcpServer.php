@@ -1,22 +1,34 @@
 <?php
-require 'Listen.php';
+require 'listenServer.php';
 
 use \Swoole\Server;
 
-class MachineServer
+/**
+ * TCP 服务
+ */
+class tcpServer
 {
+    /**
+     * 定义端口与ip
+     */
     private $port = 9505;
     private $host = '0.0.0.0';
 
+    /** 
+     * 定义 TCP 服务
+     */
     private $server;
 
+    /**
+     * TCP 服务初始化 
+     */
     public function __construct()
     {
+        echo "TCP服务:{$this->host}:{$this->port}\n";
         $this->server = new Server($this->host, $this->port);
-
         //多端口监听
-        (new Listen($this->server));
-
+        (new listenServer($this->server));
+        // tcp 服务初始化
         $this->onEvent();
     }
 
@@ -67,4 +79,4 @@ class MachineServer
     }
 }
 
-(new MachineServer())->start();
+(new tcpServer())->start();
