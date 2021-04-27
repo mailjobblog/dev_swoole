@@ -11,7 +11,7 @@ class AdminServer
     /**
      * 定义连接 ip 与 端口
      */
-    private $port = '9501';
+    private $port = 9501;
     private $host = '0.0.0.0';
 
     /**
