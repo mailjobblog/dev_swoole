@@ -26,7 +26,7 @@ class AdminServer
     {
         echo "TCP 服务:{$this->host}:{$this->port}\n";
         // 创建 server 对象
-        $this->server = new Server($this->host, $this->host);
+        $this->server = new \Swoole\Server($this->host, $this->host);
         // 初始化事件
         $this->onEvents();
     }
@@ -114,7 +114,7 @@ class AdminServer
      */
     public function sendToMachine($ip, $port, $data)
     {
-        $client = new Client(SWOOLE_SOCK_TCP);
+        $client = new \Swoole\Client(SWOOLE_SOCK_TCP);
         if (!$client->connect($ip, $port, -1)) {
             exit("connect failed. Error: {$client->errCode}\n");
         }
