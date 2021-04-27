@@ -14,3 +14,16 @@
 
 - 使用面向对象的语言实现该逻辑
 - 通过对业务服务的操作，进而处理tcp服务的需求
+
+## 测试过程
+
+```shell
+# 启动tcp服务
+php server/tcpServer.php
+
+# 启动业务服务
+php admin/adminServer.php
+
+# 进行测试
+php test/xxxClient.php
+```
