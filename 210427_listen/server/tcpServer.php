@@ -60,9 +60,9 @@ class tcpServer
     /**
      * 接收事件
      */
-    public function receive($server, $fd, $from_id, $data)
+    public function receive($server, $fd, $reactor_id, $data)
     {
-        echo '接收到信息';
+        echo "接收到的信息\n";
 
         $return = $this->sendToAdmin($this->admin_host, $this->admin_port, $data);
         var_dump($return);
@@ -93,7 +93,7 @@ class tcpServer
     /////////////////////////////////////////////////////
 
     /**
-     * 
+     * 消息返回
      */
     public function sendToAdmin($ip, $port, $data)
     {

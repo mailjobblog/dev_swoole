@@ -7,7 +7,7 @@ $data = [
     'method' => 'machineInfo',
     'msg' => 'jace',
     'data' => '666',
-    'code' => 9,
+    'code' => 1,
 ];
 $client->send(json_encode($data));
 echo $client->recv();

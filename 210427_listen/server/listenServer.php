@@ -64,10 +64,11 @@ class listenServer
         echo "接收到指令\n";
         $data = json_decode($data, true);
 
-        if ($data['code'] == 9) {
+        // 关闭 tcp 服务
+        if ($data['code'] == 0) {
             echo 'stop server';
             $this->server->shutdown();
-        } else {
+        } else { // 处理正常逻辑
             $server->send($fd, $data);
         }
     }
