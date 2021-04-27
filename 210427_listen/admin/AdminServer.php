@@ -6,16 +6,22 @@ use \Swoole\Client;
 /**
  * TCP 服务
  */
-class AdminServer
+class adminServer
 {
     /**
-     * 定义连接 ip 与 端口
+     * 定义管理服务 ip 与 端口
      */
     private $port = 9501;
     private $host = '0.0.0.0';
 
     /**
-     * 定义 TCP 服务
+     * 定义监听服务的 ip 与 端口
+     */
+    private $listen_port = 9556;
+    private $listen_host = '127.0.0.1';
+
+    /**
+     * 定义管理服务的 TCP 服务
      */
     private $server;
 
@@ -24,7 +30,7 @@ class AdminServer
      */
     public function __construct()
     {
-        echo "TCP 服务:{$this->host}:{$this->port}\n";
+        echo "管理 TCP 的服务:{$this->host}:{$this->port}\n";
         // 创建 server 对象
         $this->server = new Server($this->host, $this->port);
         // 初始化事件
@@ -78,13 +84,13 @@ class AdminServer
      */
     public function start()
     {
-        echo '启动后台服务';
+        echo "启动后台服务\n";
         $this->server->start();
     }
 
     /////////////////////////////////////////////////////
     //
-    //  业务代码
+    //  停止 tcp 服务的业务代码
     //
     /////////////////////////////////////////////////////
 
@@ -94,7 +100,7 @@ class AdminServer
     public function machineStop($server, $fd, $reactor_id, $data)
     {
         echo "去停止机器\n";
-        $return =   $this->sendToMachine('127.0.0.1', 9556, json_encode($data));
+        $return =   $this->sendToMachine($this->listen_host, $this->listen_port, json_encode($data));
         //TODO 处理其他事情
         echo "机器停止了\n";
         $server->send($fd, json_encode(['code' => 200, 'msg' => 'machine stop ok']));

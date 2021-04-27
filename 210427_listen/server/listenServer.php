@@ -48,11 +48,17 @@ class listenServer
         $this->listen->on('close', [$this, 'close']);
     }
 
+    /**
+     * 监听连接
+     */
     public function connect($server, $fd)
     {
         echo "Client: {$fd} Connect.\n";
     }
 
+    /**
+     * 接收事件
+     */
     public function receive($server, $fd, $reactor_id, $data)
     {
         echo "接收到指令\n";
@@ -66,6 +72,9 @@ class listenServer
         }
     }
 
+    /**
+     * 关闭事件
+     */
     public function close($server, $fd)
     {
         echo "Client:{$fd} Close.\n";
