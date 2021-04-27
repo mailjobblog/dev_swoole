@@ -4,7 +4,7 @@ if (!$client->connect('127.0.0.1', 9501, -1)) {
     exit("connect failed. Error: {$client->errCode}\n");
 }
 $data = [
-    'method' => 'machineInfo',
+    'method' => 'tcpServerInfo',
     'msg' => 'jace',
     'data' => '666',
     'code' => 1,
