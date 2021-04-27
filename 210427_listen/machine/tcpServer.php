@@ -48,7 +48,7 @@ class tcpServer
     {
         echo '接收到信息';
 
-        $return = $this->sendToAdmin('192.168.56.140', 9501, $data);
+        $return = $this->sendToAdmin('127.0.0.1', 9501, $data);
         var_dump($return);
 
         $server->send($fd, $return);
