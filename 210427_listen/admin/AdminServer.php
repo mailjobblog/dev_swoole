@@ -37,17 +37,17 @@ class AdminServer
     private function onEvents()
     {
         // 监听连接进入事件
-        $this->server->on('Connect', array($this, 'Connect'));
+        $this->server->on('connect', array($this, 'connect'));
         // 监听数据接收事件
-        $this->server->on('Receive', array($this, 'Receive'));
+        $this->server->on('receive', array($this, 'receive'));
         // 监听连接关闭事件
-        $this->server->on('Close', array($this, 'Close'));
+        $this->server->on('close', array($this, 'close'));
     }
 
     /**
      * 监听连接
      */
-    private function Connect($server, $fd)
+    private function connect($server, $fd)
     {
         echo "Client: {$fd} Connect.\n";
     }
@@ -55,7 +55,7 @@ class AdminServer
     /**
      * 接收事件
      */
-    private function Receive($server, $fd, $reactor_id, $data)
+    private function receive($server, $fd, $reactor_id, $data)
     {
         echo "接收到了来自 client 的数据\n";
         // $server->send($fd, "Server: {$data}");
@@ -68,7 +68,7 @@ class AdminServer
     /**
      * 关闭事件
      */
-    private function Close($server, $fd)
+    private function close($server, $fd)
     {
         echo "Client: {$fd} Close.\n";
     }
