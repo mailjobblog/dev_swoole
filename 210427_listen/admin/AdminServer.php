@@ -37,11 +37,11 @@ class AdminServer
     private function onEvents()
     {
         // 监听连接进入事件
-        $this->server->on('connect', array($this, 'connect'));
+        $this->server->on('connect', [$this, 'connect']);
         // 监听数据接收事件
-        $this->server->on('receive', array($this, 'receive'));
+        $this->server->on('receive', [$this, 'receive']);
         // 监听连接关闭事件
-        $this->server->on('close', array($this, 'close'));
+        $this->server->on('close', [$this, 'close']);
     }
 
     /**
