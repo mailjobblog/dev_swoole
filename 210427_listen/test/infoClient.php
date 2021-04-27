@@ -6,7 +6,7 @@ if (!$client->connect('127.0.0.1', 9501, -1)) {
 $data = [
     'method' => 'tcpServerInfo',
     'msg' => 'jace',
-    'data' => 'I am from client request，I want look tcpServer Info',
+    'data' => 'I am from client request,I want look tcpServer Info',
     'code' => 1,
 ];
 $client->send(json_encode($data));
