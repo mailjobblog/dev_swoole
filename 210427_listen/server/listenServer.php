@@ -66,7 +66,7 @@ class listenServer
 
         // 关闭 tcp 服务
         if ($data['code'] == 0) {
-            echo 'stop server';
+            echo "stop server\n";
             $this->server->shutdown();
         } else { // 处理正常逻辑
             $server->send($fd, $data);
