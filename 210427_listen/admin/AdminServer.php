@@ -26,7 +26,7 @@ class AdminServer
     {
         echo "TCP 服务:{$this->host}:{$this->port}\n";
         // 创建 server 对象
-        $this->server = new Server($this->host, $this->host);
+        $this->server = new Server($this->host, $this->port);
         // 初始化事件
         $this->onEvents();
     }
