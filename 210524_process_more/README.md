@@ -22,3 +22,10 @@ https://wiki.swoole.com/#/process/process?id=__construct
 
 和 `demo.php` 相比，此处 `redirect_stdin_stdout` 设置为 `false` ，变成了键盘读取。
 
+## process_atomic.php
+
+多个进程间，实现进程计数。
+
+## process_queue.php
+
+使用消息队列，作为进程间的通信方式

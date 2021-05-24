@@ -1,20 +1,25 @@
 <?php
-// https://wiki.swoole.com/#/memory/lock
+// https://wiki.swoole.com/#/memory/atomic
 
 $start = microtime(true);
 
-$lock = new Swoole\Lock(SWOOLE_MUTEX);
+$atomic = new Swoole\Atomic();
 
 for($i=0; $i<5; $i++) {
-    $lock->lock();
-    $process = new Swoole\Process(function () use ($i, $lock) {
+    $process = new Swoole\Process(function ($process) use ($i, $atomic) {
+        
+        // 计数器+1
+        $atomic->add();
+
+        // 模拟业务执行
         sleep(2);
+
+        // 内容输出
         echo 'i的值：'.$i.PHP_EOL;
+
     }, false);
 
-
     $process->start();
-    $lock->unlock();
 }
 
 $status = Swoole\Process::wait(true);
@@ -23,7 +28,10 @@ $status = Swoole\Process::wait(true);
 $status = Swoole\Process::wait(true);
 $status = Swoole\Process::wait(true);
 
-unset($lock);
+// 获取计数结果
+$num = $atomic->get();
+
+echo "计数结果：".$num.PHP_EOL;
 
 // 程序结束时间
 $end = microtime(true);
