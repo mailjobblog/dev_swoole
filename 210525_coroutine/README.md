@@ -1,4 +1,4 @@
-# 协程Demo
+# 协程实现的Demo
 
 ## 参考文档
 
@@ -24,3 +24,7 @@ Co::sleep(int second);
 ## demo-x.php
 
 是协程的几种写法
+
+## yield.php
+
+手动让出协程的执行权
