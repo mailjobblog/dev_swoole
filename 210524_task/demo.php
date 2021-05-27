@@ -1,10 +1,11 @@
 <?php
 
-$serv = new Swoole\Server('127.0.0.1', 9601);
+$serv = new Swoole\Server('0.0.0.0', 9601);
 
 //设置异步任务的工作进程数量
 $serv->set([
-    'task_worker_num' => 4
+    'worker_num'      => 4,
+    'task_worker_num' => 6
 ]);
 
 //此回调函数在worker进程中执行
