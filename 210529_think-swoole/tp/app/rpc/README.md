@@ -105,6 +105,27 @@ php think rpc:interface
 php think  make:controller RpcTest
 ```
 
+在 RpcTest 编写测试代码，关于调用的接口，可以参照生成的 rcp 里面提供的接口
+
+```php
+<?php
+declare (strict_types = 1);
+namespace app\controller;
+use think\Request;
+use rpc\contract\tp_rcp_demo\RpcTestInterface;
+class RpcTest
+{
+    public function index(RpcTestInterface $rpcTest)
+    {
+        $r1 = $rpcTest->create();
+        echo "客户端调用文件创建返回信息：".$r1."<br>";
+
+        $r2 = $rpcTest->select();
+        echo "文件查询返回信息：".json_encode($r2);
+    }
+}
+```
+
 **定义访问路由**
 
 在 `route/app.php` 添加路由
@@ -120,5 +141,10 @@ php think swoole
 ```
 
 **浏览器访问路由，看到调用远程RPC方法成功**
+
+```text
+客户端调用文件创建返回信息：数据创建成功，用时：1.0060729980469
+文件查询返回信息：["\u7b2c\u4e00\u6761\u6570\u636e\u6587\u4ef6","two two two Data File"]
+```
 
 ![rpc客户端调用成功浏览器展示](http://img.github.mailjob.net/20210530182218.png)

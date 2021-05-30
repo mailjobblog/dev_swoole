@@ -16,3 +16,10 @@ https://www.kancloud.cn/manual/thinkphp6_0/1037481#_61
 
 https://www.kancloud.cn/manual/thinkphp6_0/1359700
 
+## Task异步任务测试
+
+https://github.com/mailjobblog/dev_swoole/tree/master/210529_think-swoole/tp/app/listener/Task
+
+## RPC远程调度测试
+
+https://github.com/mailjobblog/dev_swoole/tree/master/210529_think-swoole/tp/app/rpc
