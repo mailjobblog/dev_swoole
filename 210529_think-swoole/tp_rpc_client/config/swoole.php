@@ -50,13 +50,17 @@ return [
     ],
     'rpc'        => [
         'server' => [
-            'enable'   => true,
-            'port'     => 9999,
+            'enable'   => false,
+            'port'     => 9000,
             'services' => [ //所有服务类的命名空间  进行注册
-                \app\rpc\Service\RpcTestService::class
             ],
         ],
         'client' => [
+            // 可以配置多个RPC服务端
+            'tp_rcp_demo' => [     //服务端的标识，可以自定义
+                'host' => '127.0.0.1', // 服务端的IP地址
+                'port' => 9999       // 服务器对应的端口
+            ],
         ],
     ],
     'hot_update' => [ //热更新

@@ -16,4 +16,5 @@ Route::get('think', function () {
 
 Route::get('hello/:name', 'index/hello');
 
-Route::get('test', 'app\\controller\\Task\\TaskTest/index');
+// RPC 测试路由
+Route::get('rpc', 'RpcTest/index');
