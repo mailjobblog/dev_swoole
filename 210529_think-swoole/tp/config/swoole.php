@@ -26,7 +26,7 @@ return [
     ],
     'websocket'  => [
         // 默认 false，如果改为 true 则会把 http 的服务升级为 websocket 服务
-        'enable'        => false,
+        'enable'        => true,
         'handler'       => Handler::class,
         'ping_interval' => 25000,//心跳检测
         'ping_timeout'  => 60000,

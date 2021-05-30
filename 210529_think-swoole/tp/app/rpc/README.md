@@ -12,7 +12,7 @@
 ### 编写Server的RPC配置文件
 
 - 在 `app/swoole.php` 文件中，`rpc.server.services` 注册编写的 rpc 接口类
-- 将 enable 设置为 true，即为打开服务器端的 rpc 允许客户端调用
+- 将 `enable` 设置为 `true`，即为打开服务器端的 rpc 允许客户端调用
 
 ```php
 <?php
