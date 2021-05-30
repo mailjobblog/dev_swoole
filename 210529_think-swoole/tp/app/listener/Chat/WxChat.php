@@ -3,7 +3,7 @@ declare (strict_types = 1);
 
 namespace app\listener\Chat;
 
-class WxMessage
+class WxChat
 {
     /**
      * 事件监听处理
@@ -12,6 +12,6 @@ class WxMessage
      */
     public function handle($event)
     {
-        //
+        var_dump($event);
     }
 }

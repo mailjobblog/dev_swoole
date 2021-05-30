@@ -29,9 +29,13 @@ class TaskTest extends BaseController
     /**
      * 3种调用方式演示
      *
-     * demo1: swoole 原生调用
-     * demo2: think-swoole 调用
-     * demo3: think-swoole 另一种方法调用
+     * demo1: swoole原生的方式
+     * demo2: 依赖注入的方式
+     * demo3: thinkphp提供的方式
+     *
+     * 测试说明：
+     * 可以用 get_class 获取对象类名查验
+     * 还可以用 get_class_methods 返回类中的对象数组
      */
     public function demo1(\Swoole\Server $server){
         var_dump($server);
