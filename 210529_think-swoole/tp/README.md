@@ -28,7 +28,6 @@ https://github.com/mailjobblog/dev_swoole/tree/master/210529_think-swoole/tp/app
 ## RPC远程调度测试
 
 https://github.com/mailjobblog/dev_swoole/tree/master/210529_think-swoole/tp/app/rpc
-<<<<<<< HEAD
 
 ## 简单的单聊测试
 
