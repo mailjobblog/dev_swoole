@@ -98,5 +98,4 @@ return [
 
 执行流程描述是这样的，在 `app/controller/Task/TaskTest.php` 中 `server` 调用 `task` 事件时，服务会把 `event` 事件绑定中的 `swoole.task` 中的类注入进来，由于 `controller` 中 `task` 调用的时候制定了 `EmailTask` 的事件类，所以服务交由 `EmailTask` 进行处理  
 对于task异步任务 `swoole.task` 是一个固定的写法，没法更改
-=======
->>>>>>> c42ba9bda29ef9a3574659b6e76248d8c1c19435
+
