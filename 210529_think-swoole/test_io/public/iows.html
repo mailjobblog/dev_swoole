@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+请输入：<input type="text" id="message">
+发送给：<input type="text" id="to">
+<button onclick="send()">发送</button>
+<script src="socket.io-1.4.4.js"></script>
+<script>
+
+    var socket = io("http://49.233.105.235:8001?user_id=11", { transports: ['websocket']});
+
+    socket.on('connect',function () {
+        console.log("连接成功")
+    })
+    socket.on('close',function () {
+        console.log("连接断开")
+    })
+    socket.on('chat1',function (data) {
+        console.log(data)
+    })
+    socket.on('sendfd',function (data) {
+        console.log(data)
+    })
+
+
+
+
+    function send()
+    {
+        var message = document.getElementById('message').value;
+        var to = document.getElementById('to').value;
+
+        console.log('准备给' + to + '发消息：' + message);
+        // websocket.send(message);
+        socket.emit('chat',{
+            to:to,
+            message:message
+            //来更多
+        });//['test','']
+
+        socket.emit('Chat',{
+            to:to,
+            message:message
+            //来更多
+        });//['test','']
+
+        socket.emit('message',{
+            to:to,
+            message:message
+            //来更多
+        });//['test','']
+
+        socket.emit('Message',{
+            to:to,
+            message:message
+            //来更多
+        });//['test','']
+
+    }
+
+</script>
+
+</body>
+</html>
