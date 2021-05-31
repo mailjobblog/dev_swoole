@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 # think-swoole 功能测试
+=======
+## think-swoole 功能测试
+>>>>>>> c42ba9bda29ef9a3574659b6e76248d8c1c19435
 
 ## tp
 

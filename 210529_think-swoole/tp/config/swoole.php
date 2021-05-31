@@ -1,7 +1,7 @@
 <?php
 
 use think\swoole\websocket\socketio\Handler;
-
+use think\swoole\websocket\socketio\Parser;
 return [
     'server'     => [
         'host'      => env('SWOOLE_HOST', '0.0.0.0'), // 监听地址
@@ -28,6 +28,10 @@ return [
         // 默认 false，如果改为 true 则会把 http 的服务升级为 websocket 服务
         'enable'        => true,
         'handler'       => Handler::class,
+<<<<<<< HEAD
+=======
+        'parser'        => Parser::class,
+>>>>>>> c42ba9bda29ef9a3574659b6e76248d8c1c19435
         'ping_interval' => 25000,//心跳检测
         'ping_timeout'  => 60000,
         'room'          => [ //聊天室 fd存储
@@ -50,7 +54,11 @@ return [
     ],
     'rpc'        => [
         'server' => [
+<<<<<<< HEAD
             'enable'   => true,
+=======
+            'enable'   => false,
+>>>>>>> c42ba9bda29ef9a3574659b6e76248d8c1c19435
             'port'     => 9999,
             'services' => [ //所有服务类的命名空间  进行注册
                 \app\rpc\Service\RpcTestService::class

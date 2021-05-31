@@ -1,0 +1,36 @@
+<meta charset="UTF-8">
+
+<input type="text" name="message">
+<button onclick="send()">send</button>
+
+<script>
+    var wsServer = 'ws://49.233.105.235:8001';
+    var websocket = new WebSocket(wsServer);
+    websocket.onopen = function (evt) {
+        console.log("连接服务端成功");
+    };
+
+    websocket.onclose = function (evt) {
+        console.log("html检测到和服务端的连接已经断开啦");
+    };
+
+    // 接收到了服务端的信息
+    websocket.onmessage = function (evt) {
+        console.log("服务端消息"+evt.data);
+    };
+
+    // 连接异常信息
+    websocket.onerror = function (evt, e) {
+        console.log('Error occured: ' + evt.data);
+    };
+
+    // 消息发送
+    function send() {
+        websocket.send("xiaoxi");
+        // websocket.send(JSON.stringify(['chat', {
+        //     to:123,
+        //     message:456
+        //     //来更多
+        // }]));
+    }
+</script>
