@@ -40,3 +40,9 @@ swoole 的多进程，处理
 
 websocket 小案例
 
+## 210529_think-swoole
+
+- 基于think-swoole测试task异步任务
+- 基于think-swoole测试 RPC 远程调度
+- 基于think-swoole测试简单的 socket.io 聊天
+- 基于think-swoole测试 room 聊天室
