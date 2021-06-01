@@ -7,6 +7,10 @@
 - 基于websocket测试一对一单聊服务
 - 测试room群聊
 
+## tp_html_test
+
+用来测试 tp 聊天功能的 socket 的 html 文件
+
 ## tp_rcp_client
 
 主要用于测试 think-swoole 作为 client 用 RPC 的方法去调用 server 端的 demo

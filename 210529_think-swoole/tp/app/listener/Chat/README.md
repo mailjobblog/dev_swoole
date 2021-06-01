@@ -247,7 +247,7 @@ return [
 ];
 ```
 
-### 对象类的常用方法总结
+## 对象类的常用方法总结
 
 ```text
 \think\Swoole\Websocket类对象方法：
@@ -263,4 +263,3 @@ close：关闭当前连接
 getSender：获取当前客户端id（即fd）
 setSender：设置发件人的fd
 ```
->>>>>>> c42ba9bda29ef9a3574659b6e76248d8c1c19435
